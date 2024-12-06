@@ -20,5 +20,14 @@
 		"psr-4": {
 			"Andreyco\\Instagram\\": "src/"
 		}
-	}
+	},
+
+    "scripts": {
+
+        "serve": [
+            "export COMPOSER_PROCESS_TIMEOUT=0 || set COMPOSER_PROCESS_TIMEOUT=0",
+            "php -S localhost:9000 -t src "
+		]
+    }
+
 }
