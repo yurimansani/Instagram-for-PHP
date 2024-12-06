@@ -26,12 +26,12 @@ class Client {
     /**
      * The API OAuth URL
      */
-    const API_OAUTH_URL = 'https://api.instagram.com/oauth/authorize';
+    const API_OAUTH_URL = 'https://instagram.com/oauth/authorize';
 
     /**
      * The OAuth token URL
      */
-    const API_OAUTH_TOKEN_URL = 'https://api.instagram.com/oauth/access_token';
+    const API_OAUTH_TOKEN_URL = 'https://graph.facebook.com/v21.0/oauth/access_token';
 
     /**
      * The Instagram API Key
@@ -67,7 +67,7 @@ class Client {
      * @var array
      */
     private $_scope = array();
-    private $_defaulScope = array('basic');
+    private $_defaulScope = array();
     private $_availableScope = array(
       'basic',
       'public_content',
@@ -75,6 +75,14 @@ class Client {
       'comments',
       'relationships',
       'likes',
+      'public_profile',
+      'business_basic',
+      'instagram_business_content_publish',
+      'instagram_business_manage_messages',
+      'instagram_business_manage_comments',
+      'instagram_business_basic',
+      'instagram_graph_user_media',
+      'instagram_graph_user_profile',
     );
 
     /**
@@ -130,8 +138,8 @@ class Client {
 
         return self::API_OAUTH_URL .
             '?client_id=' . $this->getApiKey() .
-            '&redirect_uri=' . urlencode($this->getApiCallback()) .
-            '&scope=' . implode('+', $scope) .
+            '&redirect_uri=' . $this->getApiCallback() .
+            '&scope=' . implode(',', $scope) .
             '&response_type=code' .
             $state;
     }
@@ -229,8 +237,8 @@ class Client {
      * @param float $lat                    Latitude of the center search coordinate
      * @param float $lng                    Longitude of the center search coordinate
      * @param integer [optional] $distance  Distance in metres (default is 1km (distance=1000), max. is 5km)
-     * @param long [optional] $minTimestamp Media taken later than this timestamp (default: 5 days ago)
-     * @param long [optional] $maxTimestamp Media taken earlier than this timestamp (default: now)
+     * @param [optional] $minTimestamp Media taken later than this timestamp (default: 5 days ago)
+     * @param [optional] $maxTimestamp Media taken earlier than this timestamp (default: now)
      * @return mixed
      */
     public function searchMedia($lat, $lng, $distance = 1000, $minTimestamp = NULL, $maxTimestamp = NULL) {
@@ -634,6 +642,9 @@ class Client {
      * @return void
      */
     public function setScope(array $scope) {
+        if (!$scope){
+            return;
+        }
         $this->_scope = $this->mergeScope($scope);
     }
 
