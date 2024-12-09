@@ -1,4 +1,4 @@
-<?php namespace Andreyco\Instagram\Support\Laravel\Facade;
+<?php namespace SocialNetworkApi\Instagram\Support\Laravel\Facade;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,4 +1,4 @@
-<?php namespace Andreyco\Instagram\Exception;
+<?php namespace SocialNetworkApi\Exception;
 
 use Exception;
 

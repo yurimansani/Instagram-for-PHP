@@ -1,5 +1,4 @@
-<?php
-namespace SocialNetworkApi;
+<?php namespace SocialNetworkApi\Instagram;
 
 use SocialNetworkApi\Exception\AuthException;
 use SocialNetworkApi\Exception\CurlException;

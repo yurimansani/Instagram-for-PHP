@@ -1,5 +1,4 @@
-<?php
-namespace SocialNetworkApi;
+<?php namespace SocialNetworkApi\Facebook;
 
 use SocialNetworkApi\Exception\AuthException;
 use SocialNetworkApi\Exception\CurlException;
@@ -27,7 +26,7 @@ class Client {
     /**
      * The API OAuth URL
      */
-    const API_OAUTH_URL = 'https://instagram.com/oauth/authorize';
+    const API_OAUTH_URL = 'https://www.facebook.com/v21.0/dialog/oauth';
 
     /**
      * The OAuth token URL
@@ -69,7 +68,7 @@ class Client {
      */
     private $_scope = array();
     private $_defaulScope = array();
-    private $_availableScope = array(
+    private $_availableScope = [
       'basic',
       'public_content',
       'follower_list',
@@ -85,7 +84,7 @@ class Client {
       'instagram_graph_user_media',
       'instagram_graph_user_profile',
       'instagram_basic',
-    );
+    ];
 
     /**
      * Available actions

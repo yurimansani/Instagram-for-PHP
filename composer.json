@@ -1,31 +1,37 @@
 {
-	"name": "andreyco/instagram",
+	"name": "yurimansani/facebookapi",
 	"type": "library",
 	"description": "An easy-to-use PHP Class for accessing Instagram's API.",
-	"keywords": ["instagram", "api"],
-	"homepage": "https://github.com/Andreyco/Instagram-for-PHP",
+	"keywords": ["instagram","facebook", "api"],
+	"homepage": "https://github.com/yurimansani/facebookapi",
 	"license": "BSD-4-Clause",
 	"authors": [
 		{
-			"name": "Andrej Badin",
-			"email": "contact@andrejbadin.com",
-			"homepage": "http://andrejbadin.com"
+			"name": "Yuri Mansani",
+			"email": "yurimv9@gmail.com"
 		}
 	],
 	"require": {
-		"php": ">=5.3.0",
+		"php": ">=5.4",
 		"ext-curl": "*"
 	},
 	"autoload": {
 		"psr-4": {
-			"Andreyco\\Instagram\\": "src/"
+			"SocialNetworkApi\\": "src/"
 		}
 	},
 
+    "config": {
+        "process-timeout": 0
+    },
     "scripts": {
 
         "serve": [
-            "php -S localhost:9000 -t src"
+            "php -S localhost:9000 -t public"
+		],
+
+		"post-install-cmd": [
+			"php todo.php"
 		]
     }
 
